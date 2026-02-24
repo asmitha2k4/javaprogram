@@ -1,0 +1,33 @@
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        scan.nextLine();   // consume newline
+
+        HashMap<String, String> phoneBook = new HashMap<String, String>();
+
+        // Read phone book entries
+        for (int i = 0; i < n; i++) {
+            String name = scan.nextLine();
+            String number = scan.nextLine();
+            phoneBook.put(name, number);
+        }
+
+        // Read queries until EOF
+        while (scan.hasNext()) {
+            String query = scan.nextLine();
+
+            if (phoneBook.containsKey(query)) {
+                System.out.println(query + "=" + phoneBook.get(query));
+            } else {
+                System.out.println("Not found");
+            }
+        }
+
+        scan.close();
+    }
+}
